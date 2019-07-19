@@ -1,4 +1,4 @@
-# MeshCompare
+# MeshCompare(Maya 2018 version)
 
 A selection of tools to visualize differences between mesh objects.
 These are visualized as vertex colors.

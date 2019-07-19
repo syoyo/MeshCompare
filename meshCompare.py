@@ -35,6 +35,8 @@ def static_compare(mesh, target, clamp=10, world=True):
     space = om.MSpace.kWorld if world else om.MSpace.kObject
     mesh_points = mesh_mesh.getPoints(space)
     target_points = target_mesh.getPoints(space)
+    print("mesh points = ", len(mesh_points))
+    print("target points = ", len(target_points))
 
     colors = om.MColorArray()
     ids = []
@@ -103,11 +105,12 @@ def get_shape(path):
     # Finally convert to a dag object
     sel = om.MSelectionList()
     sel.add(path)
-    dag = sel.getDagPath(0)
+    dagPath = om.MDagPath()
+    dagPath = sel.getDagPath(0)
 
-    return dag
+    return dagPath
 
 
-if __name__ == '__main__':
-    logger.warning('Running main namespace tests')
-    static_compare('pCube2', 'pCube1', clamp=100)
+#if __name__ == '__main__':
+#    logger.warning('Running main namespace tests')
+#    static_compare('pCube2', 'pCube1', clamp=100)
